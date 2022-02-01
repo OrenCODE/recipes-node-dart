@@ -1,6 +1,13 @@
 # Recipes application with TS and Dart
 Building a Recipe Application Using Node.js, Express, MongoDB, Dart
 
+
+# Useful links
+
+- Spoonacular food API - https://spoonacular.com/food-api/docs
+- Flutter tutorial for begginers - https://www.youtube.com/playlist?list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ
+
+
 <br/>
 
 # Prerequisites
