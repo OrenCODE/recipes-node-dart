@@ -1,7 +1,11 @@
 import express from 'express'
-import { getRecipes } from '../../controllers/recipes'
+import { getRecipes, searchRecipe, showRecipeInformation } from '../../controllers/recipes'
 const router = express.Router();
 
-router.get('/recipes', getRecipes);
+// router.get('/', getRecipes);
+
+router.get('/information/:id', showRecipeInformation)
+
+router.get('/search', searchRecipe);
 
 export default router;

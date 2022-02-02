@@ -2,8 +2,8 @@ import mongoose from 'mongoose'
 import slugify from 'slugify'
 
 /*
-Spoonacular food API - search recipe information
-https://spoonacular.com/food-api/docs#Search-Recipes-Complex
+Spoonacular food API - get recipe information
+https://spoonacular.com/food-api/docs#Get-Recipe-Information
 */
 
 const recipeSchema = new mongoose.Schema({
@@ -33,15 +33,39 @@ const recipeSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  carbs: {
-    type: String,
+  readyMinutes: {
+      Type: Number,
+      required: true
   },
-  fat: {
-    type: String,
+  spoonacularScore: {
+      type: Number,
+      required: false,
   },
-  protein: {
-    type: String
+  dishTypes: {
+      type: Array,
+  },
+  ingredients: {
+      type: Array,
+      required: true
+  },
+  summary: {
+      type: String,
+      required: true
+  },
+  cuisines: {
+      type: Array,
+      required: false
+  },
+  instructions: {
+      type: String,
+      required: true
+  },
+  srcUrl: {
+      type: String,
+      unique: true,
+      required: true
   }
+
 })
 
 recipeSchema.pre('validate', function(next: any) {
@@ -52,4 +76,4 @@ recipeSchema.pre('validate', function(next: any) {
   next()
 })
 
-export default mongoose.model('Recipe', recipeSchema)
+export default mongoose.model('recipeInformation', recipeSchema)

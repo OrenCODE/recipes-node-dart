@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>All Recipes</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 class="mb-4">Recipes</h1>
+
+        <div class='container'>
+            <form action="/api/recipes/search" method="GET" class="d-inline">
+                <div class="form-outline">
+                    <input type="search" name='searchQuery' id="form1" class="form-control" />
+                    <label class="form-label" for="form1">Search</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Search
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            
+        </div>
+
+        <% recipes.forEach(recipe => { %>
+        <div class="card mt-4">
+            <div class="card-body">
+            <h4 class="card-title"><%= recipe.title %></h4>
+            <div class="card-text mb-2">
+                <img src='<%= recipe.image %>' class="img-fluid" alt="Responsive image">
+            </div>
+            <a href="/api/recipes/information/" class="btn btn-primary">Read More</a>
+        </div>
+    </div>
+    <% }) %>
+  </div>
+</body>
+</html>

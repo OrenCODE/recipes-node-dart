@@ -1,0 +1,21 @@
+<div class="form-group">
+    <label for="score">Score</label>
+    <input value="<%= recipe.spoonacularScore %>" type="text" name="score" id="score" class="form-control">
+</div>
+
+<div class="form-group">
+    <label for="readyminutes">ReadyMinutes</label>
+    <input value="<%= recipe.readyInMinutes %>" type="text" name="readyminutes" id="readyminutes" class="form-control">
+</div>
+
+<div class="form-group">
+    <label for="instructions">Instructions</label>
+    <textarea name="instructions" id="instructions" class="form-control"><%= recipe.instructions %></textarea>
+</div>
+  
+<div class="form-group">
+    <label for="ingredients">Ingredients</label>
+    <textarea name="ingredients" id="ingredients" class="form-control"><%= recipe.extendedIngredients %></textarea>
+</div>
+  
+<a href="/api/recipes/search?searchQuery=" class="btn btn-secondary">Go Back</a>

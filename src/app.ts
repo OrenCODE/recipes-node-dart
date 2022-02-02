@@ -15,6 +15,9 @@ app.use(express.json());
 app.use(cors());
 app.disable('etag');
 
+app.set('view engine', 'ejs')
+app.set('views', './src/views')
+
 // Define Routes
 app.use('/api/recipes', recipesRouter);
 
