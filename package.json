@@ -9,10 +9,10 @@
     "build": "tsc -p ."
   },
   "dependencies": {
+    "axios": "^0.25.0",
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "mongoose": "^6.1.8",
-    "node-fetch": "^2.6.7",
     "nodemon": "^2.0.15",
     "slugify": "^1.6.5",
     "ts-node": "^10.4.0",

@@ -1,17 +1,15 @@
 import Recipe from './../models/recipe'
-// @ts-ignore
-import * as fetch from 'node-fetch'
+import axios from 'axios'
 import { recipeApiKey } from './../config/keys'
 import slugify from 'slugify';
 
 export const searchRecipe = async (req: any, res: any) => {
 
-  await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${recipeApiKey}&query=${req.query.searchQuery}`)
-            .then((response: any) => response.json())
-            .then((data: any) => {
-    
-    const totalResults = data.totalResults;
-    const results = data.results;
+  await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${recipeApiKey}&query=${req.query.searchQuery}`)
+            .then((response: any) => {
+
+    const totalResults = response.data.totalResults;
+    const results = response.data.results;
 
     res.render('recipes/search', {
       recipes: results
@@ -22,14 +20,11 @@ export const searchRecipe = async (req: any, res: any) => {
 
 export const showRecipeInformation = async (req: any, res: any) => {
 
-  await fetch(`https://api.spoonacular.com/recipes/${req.params.id}/information?apiKey=${recipeApiKey}`)
-            .then((response: any) => response.json())
-            .then((data: any) => {
-
-    console.log(data)
+  await axios.get(`https://api.spoonacular.com/recipes/${req.params.id}/information?apiKey=${recipeApiKey}`)
+            .then((response: any) => {
 
     res.render('recipes/information', {
-      recipe: data
+      recipe: response.data
     })
   })
 }
