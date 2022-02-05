@@ -1,7 +1,6 @@
 import { connect } from 'mongoose'
 import { mongoURI } from './keys';
 
-
 const connectDB = async () => {
   try {
     await connect(mongoURI)
